@@ -1,1 +1,2 @@
 # MyFirstProject
+iex *.exs
