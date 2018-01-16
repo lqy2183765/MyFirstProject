@@ -17,15 +17,14 @@ defmodule Rpn do
     if(is_integer head) do
       [head | tail]
     else
-      [right, tail1] = loop(tail)
-      IO.puts right
-      [left, tail2] = loop(tail1)
-      IO.puts left
+      [right | tail1] = loop(tail)
+      [left | tail2] = loop(tail1)
       case head do
-        :+ -> left + right
-        :- -> left - right
-        :* -> left * right
+        :+ -> rtn = left + right
+        :- -> rtn = left - right
+        :x -> rtn = left * right
       end
+      [rtn | tail2]
     end
   end
 end
